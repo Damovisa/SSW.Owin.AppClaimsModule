@@ -28,5 +28,10 @@ namespace SSW.Owin.AppClaimsModule.Example.Controllers
         {
             return View();
         }
+
+        public ActionResult WebApi()
+        {
+            return View();
+        }
     }
 }

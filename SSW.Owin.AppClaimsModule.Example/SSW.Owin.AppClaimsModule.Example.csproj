@@ -176,6 +176,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -246,6 +247,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_ClaimDetails.cshtml" />
     <Content Include="Views\Home\QueenslandOnly.cshtml" />
+    <Content Include="Views\Home\WebApi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -261,6 +263,10 @@
     <ProjectReference Include="..\SSW.Owin.AppClaimsAuthorization.Mvc\SSW.Owin.AppClaimsAuthorization.Mvc.csproj">
       <Project>{CE877743-179E-48C5-BE36-7E61787BA1AA}</Project>
       <Name>SSW.Owin.AppClaimsAuthorization.Mvc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SSW.Owin.AppClaimsAuthorization.WebApi\SSW.Owin.AppClaimsAuthorization.WebApi.csproj">
+      <Project>{799f35be-039e-48e3-b998-a0bad1a79a53}</Project>
+      <Name>SSW.Owin.AppClaimsAuthorization.WebApi</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

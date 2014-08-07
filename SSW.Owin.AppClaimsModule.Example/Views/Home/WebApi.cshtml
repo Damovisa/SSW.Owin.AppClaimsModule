@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Web Api Example";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>Result of <code>ValueController.UserOnly</code> Get method</p>
+<pre id="adminResult"></pre>
+
+<p>Result of <code>ValueController.AdminOnly</code> Get method</p>
+<pre id="userResult"></pre>
+
+<p>Result of <code>ValueController.QueenslandOnly</code> Get method</p>
+<pre id="qldResult"></pre>
+
+<p>To see the behaviour should the user not have the required claim(s), modify the <code>ApplicationClaims/ExampleClaimsProvider.cs</code> file</p>
+
+@section scripts
+{
+    <script type="text/javascript">
+        $(function() {
+            var userUrl = '@Url.HttpRouteUrl("AdminOnly", new {})';
+            var adminUrl = '@Url.HttpRouteUrl("UserOnly", new {})';
+            var qldUrl = '@Url.HttpRouteUrl("QldOnly", new {})';
+
+            $.getJSON(userUrl, function() {})
+                .done(function(data, status) {
+                    $('#userResult').text(status + ": " + JSON.stringify(data));
+                })
+                .fail(function(data, status) {
+                    $('#userResult').text(status + ": " + JSON.stringify(data));
+                });
+
+            $.getJSON(adminUrl, function() {})
+                .done(function(data, status) {
+                    $('#adminResult').text(status + ": " + JSON.stringify(data));
+                })
+                .fail(function(data, status) {
+                    $('#adminResult').text(status + ": " + JSON.stringify(data));
+                });
+
+            $.getJSON(qldUrl, function() {})
+                .done(function(data, status) {
+                    $('#qldResult').text(status + ": " + JSON.stringify(data));
+                })
+                .fail(function(data, status) {
+                    $('#qldResult').text(status + ": " + JSON.stringify(data));
+                });
+        });
+    </script>
+}

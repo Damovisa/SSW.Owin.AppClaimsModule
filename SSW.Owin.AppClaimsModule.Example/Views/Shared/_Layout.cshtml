@@ -21,9 +21,10 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("User Page", "ApplicationUser", "Home")</li>
-                    <li>@Html.ActionLink("Administrator Page", "Administration", "Home")</li>
-                    <li>@Html.ActionLink("Queensland Only Page", "QueenslandOnly", "Home")</li>
+                    <li>@Html.ActionLink("User", "ApplicationUser", "Home")</li>
+                    <li>@Html.ActionLink("Administrator", "Administration", "Home")</li>
+                    <li>@Html.ActionLink("Queensland", "QueenslandOnly", "Home")</li>
+                    <li>@Html.ActionLink("Web Api", "WebApi", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
