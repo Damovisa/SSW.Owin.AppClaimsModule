@@ -2,12 +2,13 @@
 using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
+using Microsoft.Owin;
 
 namespace SSW.Owin.AppClaimsModule
 {
     public abstract class AppClaimsProvider
     {
-        public abstract IEnumerable<Claim> GetClaimsForPrincipal(ClaimsPrincipal principal);
+        public abstract IEnumerable<Claim> GetClaimsForPrincipal(ClaimsPrincipal principal, IHeaderDictionary headers);
 
         public string GetPrincipalCacheKey(ClaimsPrincipal principal)
         {

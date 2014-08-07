@@ -7,13 +7,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using Microsoft.Owin;
 
 namespace SSW.Owin.AppClaimsModule.Example.ApplicationClaims
 {
 
     public class ExampleClaimsProvider : AppClaimsProvider
     {
-        public override IEnumerable<Claim> GetClaimsForPrincipal(ClaimsPrincipal principal)
+        public override IEnumerable<Claim> GetClaimsForPrincipal(ClaimsPrincipal principal, IHeaderDictionary headers)
         {
             const string issuer = "Example Claims Provider";
             var nameClaim = principal.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name);

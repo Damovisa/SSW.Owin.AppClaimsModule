@@ -80,7 +80,7 @@ namespace SSW.Owin.AppClaimsModule
             // if no claims have been retrieved (either no cacheprovider or not in cache)
             if (newClaims == null)
             {
-                newClaims = claimsProvider.GetClaimsForPrincipal(principal);
+                newClaims = claimsProvider.GetClaimsForPrincipal(principal, ctx.Request.Headers);
                 if (cacheProvider != null)
                 {
                     var cacheKey = claimsProvider.GetPrincipalCacheKey(ctx.Authentication.User);

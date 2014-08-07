@@ -48,9 +48,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\SSW.Owin.AppClaimsAuthorization.WebApi.1.0.5332.29573\lib\net45\SSW.Owin.AppClaimsAuthorization.WebApi.dll</HintPath>
     </Reference>
-    <Reference Include="SSW.Owin.AppClaimsModule, Version=1.0.5332.25744, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SSW.Owin.AppClaimsModule, Version=1.0.5333.16634, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\SSW.Owin.AppClaimsModule.1.0.5332.25744\lib\net45\SSW.Owin.AppClaimsModule.dll</HintPath>
+      <HintPath>..\packages\SSW.Owin.AppClaimsModule.1.0.5333.16634\lib\net45\SSW.Owin.AppClaimsModule.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
