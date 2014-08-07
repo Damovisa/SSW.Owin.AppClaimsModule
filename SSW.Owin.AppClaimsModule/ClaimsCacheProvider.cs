@@ -14,7 +14,7 @@ namespace SSW.Owin.AppClaimsModule
 
         public abstract IEnumerable<Claim> GetClaims(string key);
 
-        public static ClaimsCacheProvider DefaultClaimsProvider
+        public static ClaimsCacheProvider DefaultCacheProvider
         {
             get
             {
