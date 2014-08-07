@@ -40,6 +40,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SSW.Owin.AppClaimsAuthorization.Mvc, Version=1.0.5332.29573, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\SSW.Owin.AppClaimsAuthorization.Mvc.1.0.5332.29573\lib\net45\SSW.Owin.AppClaimsAuthorization.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="SSW.Owin.AppClaimsAuthorization.WebApi, Version=1.0.5332.29573, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\SSW.Owin.AppClaimsAuthorization.WebApi.1.0.5332.29573\lib\net45\SSW.Owin.AppClaimsAuthorization.WebApi.dll</HintPath>
+    </Reference>
     <Reference Include="SSW.Owin.AppClaimsModule, Version=1.0.5332.25744, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\SSW.Owin.AppClaimsModule.1.0.5332.25744\lib\net45\SSW.Owin.AppClaimsModule.dll</HintPath>
@@ -258,16 +266,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SSW.Owin.AppClaimsAuthorization.Mvc\SSW.Owin.AppClaimsAuthorization.Mvc.csproj">
-      <Project>{CE877743-179E-48C5-BE36-7E61787BA1AA}</Project>
-      <Name>SSW.Owin.AppClaimsAuthorization.Mvc</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SSW.Owin.AppClaimsAuthorization.WebApi\SSW.Owin.AppClaimsAuthorization.WebApi.csproj">
-      <Project>{799f35be-039e-48e3-b998-a0bad1a79a53}</Project>
-      <Name>SSW.Owin.AppClaimsAuthorization.WebApi</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
