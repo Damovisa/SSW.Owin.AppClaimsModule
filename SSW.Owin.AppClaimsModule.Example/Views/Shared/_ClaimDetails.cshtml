@@ -1,0 +1,67 @@
+﻿@using System.Security.Claims
+@using System.Security.Principal
+@{
+    IEnumerable<Claim> claims;
+    IEnumerable<ClaimsIdentity> identities;
+    IIdentity userIdentity;
+
+    if (Request.IsAuthenticated && User != null)
+    {
+        var principal = ((ClaimsPrincipal)User);
+        claims = principal.Claims;
+        identities = principal.Identities;
+        userIdentity = User.Identity;
+    }
+    else
+    {
+        claims = new Claim[] { };
+        identities = new ClaimsIdentity[] { };
+        userIdentity = null;
+    }
+
+}
+
+<h2>User.Identity</h2>
+<div class="row">
+    <div class="col-md-4 text-primary">Authentication Type</div>
+    <div class="col-md-2 text-primary">Authenticated?</div>
+    <div class="col-md-6 text-primary">Identity Name</div>
+</div>
+@if (userIdentity != null)
+{
+    <div class="row">
+        <div class="col-md-4">@userIdentity.AuthenticationType</div>
+        <div class="col-md-2">@(userIdentity.IsAuthenticated ? "Yes" : "No")</div>
+        <div class="col-md-6">@userIdentity.Name</div>
+    </div>
+}
+
+<h2>Identities</h2>
+<div class="row">
+    <div class="col-md-4 text-primary">Authentication Type</div>
+    <div class="col-md-2 text-primary">Authenticated?</div>
+    <div class="col-md-6 text-primary">Identity Name</div>
+</div>
+@foreach (var identity in identities)
+{
+    <div class="row">
+        <div class="col-md-4">@identity.AuthenticationType</div>
+        <div class="col-md-2">@(identity.IsAuthenticated ? "Yes" : "No")</div>
+        <div class="col-md-6">@identity.Name</div>
+    </div>
+}
+
+<h2>All Claims</h2>
+<div class="row">
+    <div class="col-md-2 text-primary">Issuer</div>
+    <div class="col-md-6 text-primary">Claim Type</div>
+    <div class="col-md-4 text-primary">Value</div>
+</div>
+@foreach (var claim in claims)
+{
+    <div class="row">
+        <div class="col-md-2">@claim.Issuer</div>
+        <div class="col-md-6">@claim.Type</div>
+        <div class="col-md-4">@claim.Value</div>
+    </div>
+}

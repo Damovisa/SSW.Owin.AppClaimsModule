@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+
+    var currentUser = "No User. Log in to show details.";
+    if (Request.IsAuthenticated)
+    {
+        currentUser = User.Identity.Name;
+    }
+}
+
+<div class="jumbotron">
+    <h1>SSW.Owin.AppClaimsModule</h1>
+    <p class="lead">Current user is: @currentUser</p>
+</div>
+
+@Html.Partial("_ClaimDetails")
