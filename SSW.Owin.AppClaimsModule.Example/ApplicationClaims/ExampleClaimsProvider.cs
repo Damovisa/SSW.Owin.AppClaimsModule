@@ -20,9 +20,19 @@ namespace SSW.Owin.AppClaimsModule.Example.ApplicationClaims
             var name = nameClaim == null ? "Unknown" : StripUsername(nameClaim.Value);
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.DateOfBirth, new DateTime(1975, 5, 5).ToUniversalTime().ToString("o"),
-                    ClaimValueTypes.DateTime, issuer),
-                new Claim(ClaimTypes.Name, name, ClaimValueTypes.String, issuer)
+
+                // ** Role Claims
+                // Add User claim
+                new Claim(ClaimTypes.Role, "Example.User", ClaimValueTypes.String, issuer),
+                // Add Administrator claim
+                new Claim(ClaimTypes.Role, "Example.Admin", ClaimValueTypes.String, issuer),
+
+                // ** Additional Claims
+                // Add State or Province claim
+                new Claim(ClaimTypes.StateOrProvince, "Queensland", ClaimValueTypes.String, issuer),
+                // Add new name and date of birth claims
+                new Claim(ClaimTypes.Name, name, ClaimValueTypes.String, issuer),
+                new Claim(ClaimTypes.DateOfBirth, new DateTime(1975, 5, 5).ToUniversalTime().ToString("o"), ClaimValueTypes.DateTime, issuer),
             };
 
             return claims;

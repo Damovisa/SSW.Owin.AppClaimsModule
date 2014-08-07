@@ -1,0 +1,7 @@
+﻿@{
+    ViewBag.Title = "Queensland Only Page";
+}
+<h2>@ViewBag.Title</h2>
+
+<p class="well">This page should only be accessible by a user with a <span class="badge">ClaimTypes.StateOrProvince</span> claim of <span class="badge">Queensland</span></p>
+<p>To see the behaviour should the user not have the required claim(s), modify the <code>ApplicationClaims/ExampleClaimsProvider.cs</code> file</p>

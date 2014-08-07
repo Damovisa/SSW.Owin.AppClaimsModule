@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Security.Claims;
 using System.Web.Mvc;
+using SSW.Owin.AppClaimsAuthorization.Mvc;
 
 namespace SSW.Owin.AppClaimsModule.Example.Controllers
 {
@@ -13,17 +11,21 @@ namespace SSW.Owin.AppClaimsModule.Example.Controllers
             return View();
         }
 
-        public ActionResult About()
+        [ClaimsAuthorize("Example.User", "Example.Admin")]
+        public ActionResult Administration()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
-        public ActionResult Contact()
+        [ClaimsAuthorize("Example.User")]
+        public ActionResult ApplicationUser()
         {
-            ViewBag.Message = "Your contact page.";
+            return View();
+        }
 
+        [ClaimsAuthorize("Queensland", ClaimType = ClaimTypes.StateOrProvince)]
+        public ActionResult QueenslandOnly()
+        {
             return View();
         }
     }
