@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <projectUrl>https://github.com/Damovisa/SSW.Owin.AppClaimsModule</projectUrl>
+    <iconUrl>http://www.ssw.com.au/ssw/logo/SSW/Images/SSW_preview.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <copyright>Copyright 2014 SSW</copyright>
+    <tags>Owin Claims Auth</tags>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.Web" targetFramework="net40, net40-client" />
+    </frameworkAssemblies>
+  </metadata>
+</package>
