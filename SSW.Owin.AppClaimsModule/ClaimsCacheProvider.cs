@@ -18,10 +18,7 @@ namespace SSW.Owin.AppClaimsModule
         {
             get
             {
-                var cache = HttpRuntime.Cache;
-                cache.Add("key", "value", null, DateTime.Now.AddHours(1), TimeSpan.FromMinutes(30),
-                    CacheItemPriority.Default, null);
-                return new HttpRuntimeCache(TimeSpan.FromHours(1), CacheItemPriority.Default);
+                return new HttpRuntimeCache(TimeSpan.FromMinutes(30), CacheItemPriority.Default);
             }
         }
     }
