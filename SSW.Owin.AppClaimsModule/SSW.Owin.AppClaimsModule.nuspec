@@ -13,7 +13,8 @@
     <copyright>Copyright 2014 SSW</copyright>
     <tags>Owin Claims Auth</tags>
     <frameworkAssemblies>
-      <frameworkAssembly assemblyName="System.Web" targetFramework="net40, net40-client" />
+      <frameworkAssembly assemblyName="System.Web" />
+      <frameworkAssembly assemblyName="System.Runtime.Caching" />
     </frameworkAssemblies>
   </metadata>
 </package>

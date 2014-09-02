@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Web.Caching;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
+using Microsoft.Owin.Security.Infrastructure;
+using Microsoft.Owin.Security.OAuth;
 using Owin;
 using SSW.Owin.AppClaimsModule.Example.ApplicationClaims;
 using SSW.Owin.AppClaimsModule.Example.Models;
@@ -46,31 +49,22 @@ namespace SSW.Owin.AppClaimsModule.Example
             // This is similar to the RememberMe option when you log in.
             app.UseTwoFactorRememberBrowserCookie(DefaultAuthenticationTypes.TwoFactorRememberBrowserCookie);
 
-            // Uncomment the following lines to enable logging in with third party login providers
-            //app.UseMicrosoftAccountAuthentication(
-            //    clientId: "",
-            //    clientSecret: "");
 
-            //app.UseTwitterAuthentication(
-            //   consumerKey: "",
-            //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
-
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
 
             /* SSW.Owin.AppClaimsModule Example implementation */
-            // ** Use this to add a new Claims Identity to the User ** /
-            app.UseAppClaimsIdentityProvider(new ExampleClaimsProvider());
+            
+            // ** This is the default behaviour. Claims will be added to the existing user. ** /
+            //app.UseAppClaimsIdentityProvider(new ExampleClaimsProvider());
 
-            // ** Uncomment to add claims to the existing User Identity ** /
-            //app.UseAppClaimsAdditiveProvider(new ExampleClaimsProvider());
+            // ** to add a new identity rather than adding claims to the existing one, use this: ** /
+            //app.UseAppClaimsIdentityProvider(new ExampleClaimsProvider(), AppClaimsIdentityStrategy.AddNewIdentity);
+
+
+            // ** to avoid hitting your claims provider every time, you can also provide a cache provider. We've provided a default for you with a 30min expiry. ** /
+            //app.UseAppClaimsIdentityProvider(new ExampleClaimsProvider(), AppClaimsIdentityStrategy.AddToExistingIdentity, ClaimsCacheProvider.DefaultCacheProvider);
+            // * or you can use the default provider but provide your own timeout * /
+            app.UseAppClaimsIdentityProvider(new ExampleClaimsProvider(), AppClaimsIdentityStrategy.AddToExistingIdentity, new SystemRuntimeCacheProvider(TimeSpan.FromMinutes(1)));
         }
     }
 }

@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using System.Web;
 using System.Web.Caching;
+using CacheItemPriority = System.Web.Caching.CacheItemPriority;
 
 namespace SSW.Owin.AppClaimsModule
 {
-    public class HttpRuntimeCache : ClaimsCacheProvider
+    public class HttpRuntimeCacheProvider : ClaimsCacheProvider
     {
         private readonly TimeSpan _cacheExpiry;
         private readonly CacheItemPriority _cachePriority;
 
-        public HttpRuntimeCache(TimeSpan cacheExpiry, CacheItemPriority cachePriority)
+        public HttpRuntimeCacheProvider(TimeSpan cacheExpiry, CacheItemPriority cachePriority = CacheItemPriority.Default)
         {
             _cacheExpiry = cacheExpiry;
             _cachePriority = cachePriority;

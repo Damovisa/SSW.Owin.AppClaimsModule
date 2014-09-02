@@ -19,6 +19,7 @@ namespace SSW.Owin.AppClaimsModule
                 GetClaimIfAvailable(principal, ClaimTypes.Email) ??
                 GetClaimIfAvailable(principal, ClaimTypes.Name) ??
                 principal.GetHashCode().ToString(CultureInfo.InvariantCulture);
+            // todo: revisit uniqueness
         }
 
         private string GetClaimIfAvailable(ClaimsPrincipal principal, string type)

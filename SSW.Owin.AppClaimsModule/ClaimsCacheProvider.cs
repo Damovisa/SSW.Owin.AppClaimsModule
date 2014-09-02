@@ -18,7 +18,9 @@ namespace SSW.Owin.AppClaimsModule
         {
             get
             {
-                return new HttpRuntimeCache(TimeSpan.FromMinutes(30), CacheItemPriority.Default);
+                //return new HttpRuntimeCacheProvider(TimeSpan.FromMinutes(30));
+                // replaced with System Runtime Cache as per best practice
+                return new SystemRuntimeCacheProvider(TimeSpan.FromMinutes(30));
             }
         }
     }
