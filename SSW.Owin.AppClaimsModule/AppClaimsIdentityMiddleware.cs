@@ -46,16 +46,19 @@ namespace SSW.Owin.AppClaimsModule
                 // retrieve the claims using the claims provider
                 var newClaims = GetClaims(_options.ClaimsProvider, _options.CacheProvider, context, principal);
 
-                if (_options.ClaimsIdentityStrategy == AppClaimsIdentityStrategy.AddToExistingIdentity)
+                if (newClaims != null)
                 {
-                    // add the claims to the existing identity
-                    ((ClaimsIdentity) context.Authentication.User.Identity).AddClaims(newClaims);
-                }
-                else if (_options.ClaimsIdentityStrategy == AppClaimsIdentityStrategy.AddNewIdentity)
-                {
-                    // add the new identity to the Owin Context
-                    var additionalIdentity = new AppClaimsIdentity(newClaims);
-                    context.Authentication.User.AddIdentity(additionalIdentity);
+                    if (_options.ClaimsIdentityStrategy == AppClaimsIdentityStrategy.AddToExistingIdentity)
+                    {
+                        // add the claims to the existing identity
+                        ((ClaimsIdentity) context.Authentication.User.Identity).AddClaims(newClaims);
+                    }
+                    else if (_options.ClaimsIdentityStrategy == AppClaimsIdentityStrategy.AddNewIdentity)
+                    {
+                        // add the new identity to the Owin Context
+                        var additionalIdentity = new AppClaimsIdentity(newClaims);
+                        context.Authentication.User.AddIdentity(additionalIdentity);
+                    }
                 }
             }
 
